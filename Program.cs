@@ -20,9 +20,9 @@ namespace Command
             remote.SetCommands(1, stereoOnCommand, stereoOffCommand);
             
             remote.OnButtonPressed(0);
+            remote.UndoButtonPressed();
             remote.OnButtonPressed(1);
-            remote.OffButtonPressed(0);
-            remote.OffButtonPressed(1);
+            remote.UndoButtonPressed();
         }
     }
 }

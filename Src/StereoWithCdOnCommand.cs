@@ -13,5 +13,7 @@ namespace Command.Src
             _stereo.SetCd();
             _stereo.SetVolume();
         }        
+
+        public void Undo() => _stereo.Off();
     }
 }

@@ -8,5 +8,9 @@ namespace Command.Src
         {
             Console.WriteLine("No command");
         }
+        public void Undo()
+        {
+            Console.WriteLine("No command");
+        }
     }
 }

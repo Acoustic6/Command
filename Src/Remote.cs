@@ -9,6 +9,7 @@ namespace Command.Src
         private const int ButtonRowsCount = 7;
         private List<ICommand> onCommands;
         private List<ICommand> offCommands;
+        private ICommand undoCommand;
         public Remote()
         {
             onCommands = new List<ICommand>();
@@ -19,21 +20,30 @@ namespace Command.Src
                 onCommands.Add(noCommand);
                 offCommands.Add(noCommand);
             }
+            undoCommand = noCommand;
         }
-        public void SetCommands(int number, ICommand onCommand, ICommand offCommand)
+        public void SetCommands(int slot, ICommand onCommand, ICommand offCommand)
         {
-            onCommands[number] = onCommand;
-            offCommands[number] = offCommand;
+            onCommands[slot] = onCommand;
+            offCommands[slot] = offCommand;
         }
-        public void OnButtonPressed(short number)
+        public void OnButtonPressed(short slot)
         {
-            Console.WriteLine($"\n\n{number + 1} on button pressed");
-            onCommands[number].Execute();
+            Console.WriteLine($"\n\n{slot + 1} on button pressed");
+            onCommands[slot].Execute();
+            undoCommand = onCommands[slot];
         }
-        public void OffButtonPressed(short number)
+        public void OffButtonPressed(short slot)
         {
-            Console.WriteLine($"\n\n{number + 1} off button pressed");
-            offCommands[number].Execute();
+            Console.WriteLine($"\n\n{slot + 1} off button pressed");
+            offCommands[slot].Execute();
+            undoCommand = offCommands[slot];
+        }
+
+        public void UndoButtonPressed()
+        {
+            Console.WriteLine("Undo button pressed");
+            undoCommand.Undo();
         }
     }
 }

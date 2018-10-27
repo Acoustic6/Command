@@ -11,5 +11,10 @@ namespace Command.Src
         {
             _light.SwitchOn();
         }
+
+        public void Undo()
+        {
+            _light.SwitchOff();
+        }
     }
 }
