@@ -5,7 +5,7 @@ namespace Command.Src
         private Light _light;
         public LightOnCommand(Light light)
         {
-            _light = new Light();
+            _light = light;
         }
         public void Execute()
         {
