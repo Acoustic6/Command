@@ -1,1 +1,2 @@
-We have now undo button. but the problem is that we can not use it more than once.
+What if wee need to execute many commands pressing only one button?
+Let's make new sort of command - macrocommand which will contain several commands.

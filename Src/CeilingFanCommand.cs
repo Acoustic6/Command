@@ -9,6 +9,7 @@ namespace Command.Src
         public CeilingFanCommand(CeilingFan ceilingFan)
         {
             _ceilingFan = ceilingFan;
+            _prevSpeed = FanSpeed.Off;
         }
         public void Execute()
         {
